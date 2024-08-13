@@ -251,3 +251,18 @@ public:
 
 
 };
+
+struct Hash3d {
+    size_t operator()(const RubiksCube3dArray &r1) const {
+        string str = "";
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    str += r1.cube[i][j][k];
+                }
+            }
+        }
+        return hash<string>()(str);
+    }
+
+};
